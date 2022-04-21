@@ -4,7 +4,10 @@ export async function signUp(userData) {
     
     const res = await fetch(BASE_URL, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + localStorage.getItem('token')
+        },
         body: JSON.stringify(userData)
     })
 
