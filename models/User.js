@@ -1,5 +1,3 @@
-import { toHaveFocus } from "@testing-library/jest-dom/dist/matchers";
-import { Schema } from "../config/database";
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 const bcrypt = require('bcrypt')
