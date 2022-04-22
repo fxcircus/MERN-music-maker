@@ -19,7 +19,8 @@ export function getToken(){
     const token = localStorage.getItem('token')
     if(!token) return null
 
-    const payload = JSON.parse(window.atob(token.split('.')[1]))
+    // split by the dot, [1] returns the payload
+    const payload = JSON.parse(window.atob(token.split('.')[1])) 
     if(payload.exp < Date.now() / 1000 ){
         localStorage.removeItem('token')
         return null
