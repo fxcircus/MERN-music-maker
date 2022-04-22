@@ -8,7 +8,7 @@ module.exports = function(req, res, next) {
         //  Check if the token is valid or expired
         jwt.verify(token, process.env.SECRET, function(err, decoded) {
             req.user = err ? null : decoded.user
-            req.exp = err ? null : new Date(decoded.exp * 1000)
+            req.exp = err ? null : new Date(decoded.exp * 1000) // Token expiration, optional
         })
         return next()
     } else {
