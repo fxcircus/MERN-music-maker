@@ -1,4 +1,4 @@
-import SignUpForm from '../../components/SignUpForm'
+import SignUpForm from '../../components/SignUpForm/SignUpForm'
 import LoginForm from '../../components/LoginForm/LoginForm'
 import { useState } from 'react'
 
