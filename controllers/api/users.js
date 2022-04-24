@@ -25,7 +25,7 @@ function checkToken(req, res) {
     res.status(200).json(req.exp)
 }
 
-// Sign in -  create new user
+// Sign in - get user
 async function login(req, res) {
     try {
         const user = await User.findOne({ email: req.body.email })
