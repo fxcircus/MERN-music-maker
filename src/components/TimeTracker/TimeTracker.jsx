@@ -48,9 +48,9 @@ export default function TimeTracker() {
         <div>
             <h3>Time Tracking</h3>
             <h3>{new Date(seconds * 1000).toISOString().substr(14, 5)}</h3>
-            <button onClick={(e) => setIsOn(true)}>Start</button>
-            <button onClick={(e) => setIsOn(false)}>Stop</button>
-            <button onClick={(e) => setSeconds(900)}>Reset</button>
+            <button onClick={(e) => setIsOn(true)}>▶️</button>
+            <button onClick={(e) => setIsOn(false)}>⏹</button>
+            <button onClick={(e) => setSeconds(900)}>⏱</button>
         </div>
     )
 }

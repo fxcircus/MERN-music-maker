@@ -68,7 +68,7 @@ export default function RuleSet() {
                 <td className="cube res" id="sound-text">{soundEl}</td>
             </tr>
             <div className ="cube">{tonesEl}</div>      
-            <button onClick={(e) => {rollDice()}} className ="cube">--- ROLL ---</button>
+            <button onClick={(e) => {rollDice()}} className ="cube">🎲</button>
         </table>
     )
 }

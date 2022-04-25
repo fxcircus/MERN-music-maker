@@ -42,13 +42,13 @@ export default function Progress(props) {
                 items.map(item => {
                     return (
                             <td>
-                                <button onClick={(e) => {flipStatus(item)}}>done</button>
                                 <div>
                                     {item.isDone ? 
                                     <div className='not-crossed'>{item.title}</div>
                                     :
                                     <div className='crossed' >{item.title}</div>}
                                 </div>
+                                <button onClick={(e) => {flipStatus(item)}}>✓</button>
                             </td>
                     )
                 })
