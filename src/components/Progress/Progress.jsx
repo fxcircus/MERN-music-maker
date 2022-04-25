@@ -37,17 +37,22 @@ export default function Progress( props) {
     }, render)
 
     return (
-        <table>
+        <tr>
             {
                 items.map(item => {
                     return (
-                            item.isDone ? 
-                            <td className='not-crossed' onClick={(e) => {flipStatus(item)}}>{item.title}</td>
-                            :
-                            <td className='crossed' onClick={(e) => {flipStatus(item)}}>{item.title}</td>
+                            <td>
+                                <button onClick={(e) => {flipStatus(item)}}>done</button>
+                                <div>
+                                    {item.isDone ? 
+                                    <div className='not-crossed'>{item.title}</div>
+                                    :
+                                    <div className='crossed' >{item.title}</div>}
+                                </div>
+                            </td>
                     )
                 })
             }
-        </table>
+        </tr>
     )
 }
