@@ -1,5 +1,5 @@
 
-export default function Title() {
+export default function TimeTracker() {
     return (
         <div>
             <h3>Time Tracking</h3>
