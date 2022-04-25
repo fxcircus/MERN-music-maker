@@ -2,7 +2,8 @@ const Item = require('../../models/Item')
 
 module.exports = {
     create,
-    getAllItems
+    getAllItems,
+    flipStatus
 }
 
 // Create 
@@ -23,4 +24,17 @@ async function getAllItems(req, res) {
     } catch(e) {
         res.status(400).json(e)
     }
+}
+
+// Flip Status
+async function flipStatus(req, res) {
+    const { body } = req
+
+    Item.findByIdAndUpdate(req.params.id, body, {new: true}, (err, updatedItem) => {
+        if(!err) {
+            res.status(200).json(updatedItem)
+        } else {
+            res.status(400).json(err)
+        }
+    })
 }
