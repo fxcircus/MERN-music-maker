@@ -9,12 +9,16 @@ export default function Project() {
     return (
         <main className='Project'>
             <Title/>
+            <hr/>
             <TimeTracker />
+            <hr/>
             <RuleSet />
+            <hr/>
             <h1>Items</h1>
             <table>
                 <Progress />
             </table>
+            <hr/>
             <Notes />
         </main>
     )
