@@ -21,8 +21,13 @@ export default function Project() {
         setSavedProject({...savedProject, ...newAttr})
     }
 
+    const uploadSave = () => {
+        console.log(savedProject)
+    }
+
     return (
         <main className='Project'>
+            <button onClick={(e) => {uploadSave()}}>Save</button>
             <Title/>
             <hr/>
             <TimeTracker saveProject={saveProject}/>
