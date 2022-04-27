@@ -11,4 +11,7 @@ router.get('/', itemsCtrl.getAllItems)
 // PUT /api/items/_id
 router.put('/:id', itemsCtrl.flipStatus)
 
+// DELETE /api/items/_id
+router.delete('/:id', itemsCtrl.deleteItem)
+
 module.exports = router

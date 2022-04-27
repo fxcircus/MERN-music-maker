@@ -3,7 +3,8 @@ const Item = require('../../models/Item')
 module.exports = {
     create,
     getAllItems,
-    flipStatus
+    flipStatus,
+    deleteItem
 }
 
 // Create 
@@ -33,6 +34,17 @@ async function flipStatus(req, res) {
     Item.findByIdAndUpdate(req.params.id, body, {new: true}, (err, updatedItem) => {
         if(!err) {
             res.status(200).json(updatedItem)
+        } else {
+            res.status(400).json(err)
+        }
+    })
+}
+
+// Delete item
+async function deleteItem(req, res) {
+    Item.findByIdAndDelete(req.params.id , (err, deletedItem) => {
+        if(!err) {
+            res.status(200).json(deletedItem)
         } else {
             res.status(400).json(err)
         }

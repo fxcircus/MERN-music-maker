@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { getAllItems,  flipItemStatus } from '../../utilities/items-api'
+import { getAllItems,  flipItemStatus, deleteAnItem, createItem } from '../../utilities/items-api'
 
 // import axios from 'axios'
 
@@ -7,37 +7,11 @@ export default function Progress({ saveProject }) {
     const [items, setItems] = useState([])
     const [render, setRender] = useState(false)
 
-    // MK I
-    /*
-    const URL = 'http://localhost:3001/api'
+    const createItem = async() => {
 
-    const getItems = async() => {
-        try {
-            const itemArr = await axios.get(`${URL}/items`)
-            setItems(itemArr.data)
-        } catch(error) {
-            console.error(error)
-        }
+        getItems()
     }
 
-    const flipStatus = async(item) => {
-        console.log(item)
-        try {
-            await axios({
-                method: 'put',
-                url:`${URL}/items/${item._id}`,
-                data: {title: item.title, isDone: !item.isDone}
-
-            })
-            setRender(!render)
-            getItems()
-        } catch(error) {
-            console.error(error)
-        }
-    }
-    */
-
-    // MK II
     const getItems = async() => {
         const response = await getAllItems()
         setItems(response.data)
@@ -47,6 +21,12 @@ export default function Progress({ saveProject }) {
     const flipStatus = async(item) => {
         await flipItemStatus(item)
         setRender(!render)
+        getItems()
+    }
+
+    const deleteItem = async (item) => {
+        const response = await deleteAnItem(item)
+        console.log(response)
         getItems()
     }
 
@@ -60,13 +40,14 @@ export default function Progress({ saveProject }) {
                 items.map(item => {
                     return (
                             <td>
+                                <button onClick={(e) => {deleteItem(item)}}>🗑</button>
                                 <div>
                                     {item.isDone ? 
-                                    <div className='not-crossed'>{item.title}</div>
+                                    <div className='not-crossed' onClick={(e) => {flipStatus(item)}}>✓ {item.title}</div>
                                     :
-                                    <div className='crossed' >{item.title}</div>}
+                                    <div className='crossed' onClick={(e) => {flipStatus(item)}}>✓ {item.title}</div>}
                                 </div>
-                                <button onClick={(e) => {flipStatus(item)}}>✓</button>
+                                <button >✏️</button>
                             </td>
                     )
                 })
