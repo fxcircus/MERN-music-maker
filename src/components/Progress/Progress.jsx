@@ -1,10 +1,14 @@
 import { useState, useEffect } from 'react'
-import axios from 'axios'
+import { getAllItems,  flipItemStatus } from '../../utilities/items-api'
 
-export default function Progress(props) {
+// import axios from 'axios'
+
+export default function Progress({ saveProject }) {
     const [items, setItems] = useState([])
     const [render, setRender] = useState(false)
 
+    // MK I
+    /*
     const URL = 'http://localhost:3001/api'
 
     const getItems = async() => {
@@ -30,6 +34,20 @@ export default function Progress(props) {
         } catch(error) {
             console.error(error)
         }
+    }
+    */
+
+    // MK II
+    const getItems = async() => {
+        const response = await getAllItems()
+        setItems(response.data)
+        saveProject({ itemsVal: items})
+    }
+
+    const flipStatus = async(item) => {
+        await flipItemStatus(item)
+        setRender(!render)
+        getItems()
     }
 
     useEffect(()=> {

@@ -18,8 +18,6 @@ export default function Project() {
     })
 
     const saveProject = (newAttr) => {
-        // setSavedProject({...savedProject, [newAttr.name]: newAttr.value})
-        // setSavedProject({...savedProject, [newAttr.key]: newAttr.scaleVal})
         setSavedProject({...savedProject, ...newAttr})
     }
 
@@ -33,7 +31,7 @@ export default function Project() {
             <hr/>
             <h1>Items</h1>
             <table>
-                <Progress />
+                <Progress saveProject={saveProject}/>
             </table>
             <hr/>
             <Notes saveProject={saveProject}/>

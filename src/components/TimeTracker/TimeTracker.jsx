@@ -6,7 +6,6 @@ export default function TimeTracker({ saveProject }) {
     // let refTime = useRef(900)
     const INTERVAL_MS = 1000
 
-
     const handleClick = (timerState) => {
         if (timerState === 0) {
             setIsOn(true)
@@ -33,7 +32,6 @@ export default function TimeTracker({ saveProject }) {
     
     return (
         <div>
-            <h3>Time Tracking</h3>
             <h3>{new Date(seconds * 1000).toISOString().substr(14, 5)}</h3>
             <button onClick={() => handleClick(0)}>▶️</button>
             <button onClick={() => handleClick(1)}>⏹</button>
