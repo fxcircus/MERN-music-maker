@@ -6,20 +6,37 @@ import Notes from '../../components/Notes/Notes'
 import RuleSet from '../../components/RuleSet/RuleSet'
 
 export default function Project() {
+    const [savedProject, setSavedProject] = useState({
+        timeVal: 0,
+        rootVal: "C",
+        scaleVal: "MAJOR",
+        tonesVal: "T - T - S - T - T - T - S",
+        bpmVal: 120,
+        soundVal: "GUITAR",
+        itemsVal: [],
+        notesVal: ""
+    })
+
+    const saveProject = (newAttr) => {
+        // setSavedProject({...savedProject, [newAttr.name]: newAttr.value})
+        // setSavedProject({...savedProject, [newAttr.key]: newAttr.scaleVal})
+        setSavedProject({...savedProject, ...newAttr})
+    }
+
     return (
         <main className='Project'>
             <Title/>
             <hr/>
-            <TimeTracker />
+            <TimeTracker saveProject={saveProject}/>
             <hr/>
-            <RuleSet />
+            <RuleSet saveProject={saveProject}/>
             <hr/>
             <h1>Items</h1>
             <table>
                 <Progress />
             </table>
             <hr/>
-            <Notes />
+            <Notes saveProject={saveProject}/>
         </main>
     )
 }

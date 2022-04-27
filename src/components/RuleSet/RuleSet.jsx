@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 
-export default function RuleSet() {
+export default function RuleSet( { saveProject }) {
     const [rootEl, setRootEl] = useState('')
     const [scaleEl, setScaleEl] = useState('')
     const [tonesEl, setTonesEl] = useState('')
@@ -20,19 +20,18 @@ export default function RuleSet() {
     const getIndex = (num) => {
         let result = Math.floor(Math.random() * num)
         scaleIdx = result
-        // console.log(`scaleIdx = ${scaleIdx}`)
         return result
     }
 
     // Generate new rules:
     const rollDice = () => {
+        
         setRootEl(roots[getIndex(roots.length)])
         setSoundEl(sounds[getIndex(sounds.length)])
         setScaleEl(scales[getIndex(scales.length)])
         setTonesEl(scaleTones[scaleIdx])
         
         let bpmVal = getIndex(maxBpm)
-        
         if (bpmVal > maxBpm) {
             console.log(`High! ${bpmVal}`)
             bpmVal = maxBpm
@@ -41,11 +40,19 @@ export default function RuleSet() {
             bpmVal = minBpm
         }
         setBpmEl(bpmVal)
+        
+        saveProject({
+            rootVal: rootEl,
+            scaleVal: scaleEl,
+            tonesVal: tonesEl,
+            bpmVal: bpmEl,
+            soundVal: sounds
+        })
     }
 
     // Initial choices:
     useEffect(() => {
-        rollDice()
+        // rollDice()
     },[])
 
 

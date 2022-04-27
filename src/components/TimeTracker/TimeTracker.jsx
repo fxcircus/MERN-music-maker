@@ -1,35 +1,22 @@
 import { useState, useEffect, useRef } from 'react'
 
-export default function TimeTracker() {
+export default function TimeTracker({ saveProject }) {
     const [seconds, setSeconds] = useState(900)
     const [isOn, setIsOn] = useState(true)
     // let refTime = useRef(900)
     const INTERVAL_MS = 1000
 
-    // const countDown = (newSeconds) => {
-    //     setTimeout(() => {
-    //         setSeconds(newSeconds - 1)
-    //         console.log(`seconds = ${seconds}`)
-    //         console.log(new Date(newSeconds * 1000).toISOString().substr(14, 5))
-    //         if(newSeconds > 0) {
-    //             return
-    //             countDown(newSeconds)
-    //         } else {
-    //             console.log(`time!`)
-    //         return
-    //         }
-    //     }, INTERVAL_MS);
-    // }
 
-    // var intervalID = setInterval(() => {
-    //     refTime.current -= 1
-    //     setSeconds(refTime)
-    //     console.log(`seconds = ${seconds}`)
-    //     clearInterval(100)
-    // }, INTERVAL_MS)
-
-
-
+    const handleClick = (timerState) => {
+        if (timerState === 0) {
+            setIsOn(true)
+        } else if (timerState === 1) {
+            setIsOn(false)
+        } else {
+            setSeconds(900)
+        }
+        saveProject({ timeVal: seconds})
+    }
 
     useEffect(() => {
         // intervalID()
@@ -48,9 +35,9 @@ export default function TimeTracker() {
         <div>
             <h3>Time Tracking</h3>
             <h3>{new Date(seconds * 1000).toISOString().substr(14, 5)}</h3>
-            <button onClick={(e) => setIsOn(true)}>▶️</button>
-            <button onClick={(e) => setIsOn(false)}>⏹</button>
-            <button onClick={(e) => setSeconds(900)}>⏱</button>
+            <button onClick={() => handleClick(0)}>▶️</button>
+            <button onClick={() => handleClick(1)}>⏹</button>
+            <button onClick={() => handleClick(2)}>⏱</button>
         </div>
     )
 }

@@ -1,10 +1,11 @@
 import { useState } from 'react'
 
-export default function Notes() {
+export default function Notes({ saveProject }) {
     const [text, setText] = useState({ newText: "" })
 
     const handleChange = (event) => {
         setText({...text, [event.target.name]: event.target.value})
+        saveProject({ notesVal: text.newText})
     }
 
     return (

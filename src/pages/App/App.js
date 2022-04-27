@@ -6,6 +6,7 @@ import Project from '../Project/Project'
 export default function App() {
     const [user, setUser ] = useState(null)
     
+    
     return(
         <main className='App'>
             {
