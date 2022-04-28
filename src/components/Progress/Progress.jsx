@@ -1,16 +1,13 @@
 import { useState, useEffect } from 'react'
 import { getAllItems,  flipItemStatus, deleteAnItem, createItem } from '../../utilities/items-api'
+import NewItemForm from '../../components/NewItemForm/NewItemForm'
+import { Link } from 'react-router-dom'
 
 // import axios from 'axios'
 
 export default function Progress({ saveProject }) {
     const [items, setItems] = useState([])
     const [render, setRender] = useState(false)
-
-    const createItem = async() => {
-
-        getItems()
-    }
 
     const getItems = async() => {
         const response = await getAllItems()
@@ -35,23 +32,25 @@ export default function Progress({ saveProject }) {
     }, render)
 
     return (
-        <tr>
-            {
-                items.map(item => {
-                    return (
-                            <td>
-                                <button onClick={(e) => {deleteItem(item)}}>🗑</button>
-                                <div>
-                                    {item.isDone ? 
-                                    <div className='not-crossed' onClick={(e) => {flipStatus(item)}}>✓ {item.title}</div>
-                                    :
-                                    <div className='crossed' onClick={(e) => {flipStatus(item)}}>✓ {item.title}</div>}
-                                </div>
-                                <button >✏️</button>
-                            </td>
-                    )
-                })
-            }
-        </tr>
+        <main className='progress-component'>
+            <NewItemForm createItem={createItem} getItems={getItems}/>
+            <tr>
+                {
+                    items.map(item => {
+                        return (
+                                <td>
+                                    <button onClick={(e) => {deleteItem(item)}}>🗑</button>
+                                    <div>
+                                        {item.isDone ? 
+                                        <div className='not-crossed' onClick={(e) => {flipStatus(item)}}>✓ {item.title}</div>
+                                        :
+                                        <div className='crossed' onClick={(e) => {flipStatus(item)}}>✓ {item.title}</div>}
+                                    </div>
+                                </td>
+                        )
+                    })
+                }
+            </tr>
+        </main>
     )
 }

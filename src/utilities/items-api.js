@@ -1,10 +1,16 @@
 import axios from 'axios'
+import { Link } from 'react-router-dom'
 
 const URL = 'http://localhost:3001/api'
 
-export async function createItem() {
+export async function createItem(data) {
     try {
-
+        const newItem = await axios ({
+            method: 'post',
+            url: `${URL}/items`,
+            data: {title: data.title}
+        })
+        return newItem
     } catch (error) {
         console.log(error)
     }
@@ -36,10 +42,6 @@ export async function flipItemStatus(item) {
 export async function deleteAnItem(item) {
     try {
         const deletedItem = await axios.delete(`${URL}/items/${item._id}`)
-        // const deletedItem = await axios ({
-        //     method: 'delete',
-        //     url: `${URL}/items/${item._id}`
-        // })
         return deletedItem
     } catch (error) {
         console.log(error)

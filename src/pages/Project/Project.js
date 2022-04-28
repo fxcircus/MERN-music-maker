@@ -4,6 +4,8 @@ import Title from '../../components/Title/Title'
 import TimeTracker from '../../components/TimeTracker/TimeTracker'
 import Notes from '../../components/Notes/Notes'
 import RuleSet from '../../components/RuleSet/RuleSet'
+import NewItemForm from '../../components/NewItemForm/NewItemForm'
+import { createItem } from '../../utilities/items-api'
 
 export default function Project() {
     const [savedProject, setSavedProject] = useState({
@@ -34,7 +36,6 @@ export default function Project() {
             <hr/>
             <RuleSet saveProject={saveProject}/>
             <hr/>
-            <h1>Items</h1>
             <table>
                 <Progress saveProject={saveProject}/>
             </table>
