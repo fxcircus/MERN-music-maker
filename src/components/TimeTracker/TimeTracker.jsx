@@ -32,7 +32,7 @@ export default function TimeTracker({ saveProject }) {
     
     return (
         <div>
-            <h3>{new Date(seconds * 1000).toISOString().substr(14, 5)}</h3>
+            <div className='clock'>{new Date(seconds * 1000).toISOString().substr(14, 5)}</div>
             <button onClick={() => handleClick(0)}>▶️</button>
             <button onClick={() => handleClick(1)}>⏹</button>
             <button onClick={() => handleClick(2)}>⏱</button>

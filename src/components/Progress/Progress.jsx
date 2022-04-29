@@ -18,18 +18,17 @@ export default function Progress({ saveProject }) {
     const flipStatus = async(item) => {
         await flipItemStatus(item)
         setRender(!render)
-        getItems()
     }
 
     const deleteItem = async (item) => {
         const response = await deleteAnItem(item)
         console.log(response)
-        getItems()
+        setRender(!render)
     }
 
     useEffect(()=> {
         getItems()
-    }, render)
+    }, [render])
 
     return (
         <main className='progress-component'>

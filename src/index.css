@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron&display=swap');
+
 :root {
 
 }
@@ -32,7 +34,21 @@ button:hover {
     text-decoration: none;
 }
 
-th{
+th {
     /* display: flex; */
     border: outset ;
+}
+
+.clock {
+    font-size: x-large;
+    border: outset ;
+    font-family: 'Orbitron', sans-serif;
+    max-width: 100px;
+    margin: 0 0 5px 0;
+    text-align: center;
+}
+
+.project-title {
+    border: none;
+    font-size: xx-large;
 }

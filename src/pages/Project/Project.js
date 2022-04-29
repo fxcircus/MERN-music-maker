@@ -10,7 +10,8 @@ import { updateProject } from '../../utilities/projects'
 export default function Project() {
     const [projectId, setProjectId] = useState(null)
     const [savedProject, setSavedProject] = useState({
-        timeVal: 0,
+        title: "New Project",
+        timeVal: 900,
         rootVal: "C",
         scaleVal: "MAJOR",
         tonesVal: "T - T - S - T - T - T - S",
@@ -36,8 +37,7 @@ export default function Project() {
 
     return (
         <main className='Project'>
-            <button onClick={(e) => {uploadSave()}}>Save</button>
-            <Title/>
+            <Title saveProject={saveProject} projectTitle={savedProject.title}/>
             <hr/>
             <TimeTracker saveProject={saveProject}/>
             <hr/>
@@ -48,6 +48,7 @@ export default function Project() {
             </table>
             <hr/>
             <Notes saveProject={saveProject}/>
+            <button onClick={(e) => {uploadSave()}}>Save</button>
         </main>
     )
 }
