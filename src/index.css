@@ -52,3 +52,7 @@ th {
     border: none;
     font-size: xx-large;
 }
+
+.project-title:focus {
+    outline: none;
+}

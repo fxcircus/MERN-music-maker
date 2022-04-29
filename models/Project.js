@@ -11,9 +11,6 @@ const projectSchema = new Schema({
     soundVal: String,
     itemsVal: Array,
     notesVal: String,
-    items: {
-        type: Array
-    }
 }, {
     timestamps: true
 })
