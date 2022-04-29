@@ -18,9 +18,10 @@ async function create(req, res) {
 
 // Read
 async function getProject(req, res) {
+    const { id } = req.params
     try {
-        const tasks = await Project.find({})
-        res.status(200).json(tasks)
+        const project = await Project.findById(id)
+        res.status(200).json(project)
     } catch(e) {
         res.status(400).json(e)
     }

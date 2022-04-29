@@ -18,8 +18,7 @@ export default function App() {
                 user ?
                 <Routes>
                     <Route path='/' element={<NewProject user={user} setUser={setUser} loadProject={loadProject}/>} />
-                    <Route path='/:id' element={<Project user={user} setUser={setUser}/>} />
-                    {/* <Route path='/NewItem' element={<NewItem user={user} setUser={setUser}/>} /> */}
+                    <Route path='/project/:id' element={<Project user={user} setUser={setUser}/>} />
                 </Routes>
                 :
                 <AuthPage setUser={setUser}/>
