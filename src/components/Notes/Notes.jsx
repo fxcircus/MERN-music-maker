@@ -11,7 +11,7 @@ export default function Notes({ saveProject }) {
     return (
         <div>
             <h3>Notes</h3>
-            <textarea type='text' name="newText" onChange={handleChange} value={text.newText} rows="10" cols="50"/>
+            <textarea type='text' name="newText" onChange={handleChange} value={text.newText} rows="15" cols="50"/>
         </div>
     )
 }

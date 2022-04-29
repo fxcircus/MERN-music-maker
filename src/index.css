@@ -1,11 +1,38 @@
+:root {
+
+}
+
+body {
+
+}
+
+body, button, input, a, textarea {
+    font-family: Helvetica;
+    border-radius: 5px;
+    background-color: whitesmoke;
+    /* border: solid black 2px; */
+}
+
+button {
+    padding: 0 10px 0 10px;
+    margin: 0 5px 0 0;;
+}
+
+button:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
 .crossed {
     text-decoration: line-through;
+    color:darkgray;
 }
 
 .not-crossed {
     text-decoration: none;
 }
 
-td:hover {
-    cursor: pointer;
+th{
+    /* display: flex; */
+    border: outset ;
 }

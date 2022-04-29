@@ -5,9 +5,10 @@ import TimeTracker from '../../components/TimeTracker/TimeTracker'
 import Notes from '../../components/Notes/Notes'
 import RuleSet from '../../components/RuleSet/RuleSet'
 import NewItemForm from '../../components/NewItemForm/NewItemForm'
-import { createItem } from '../../utilities/items-api'
+import { updateProject } from '../../utilities/projects'
 
 export default function Project() {
+    const [projectId, setProjectId] = useState(null)
     const [savedProject, setSavedProject] = useState({
         timeVal: 0,
         rootVal: "C",
@@ -21,11 +22,17 @@ export default function Project() {
 
     const saveProject = (newAttr) => {
         setSavedProject({...savedProject, ...newAttr})
+        
     }
 
     const uploadSave = () => {
+        updateProject(savedProject)
         console.log(savedProject)
     }
+
+    useEffect(() => {
+
+    })
 
     return (
         <main className='Project'>

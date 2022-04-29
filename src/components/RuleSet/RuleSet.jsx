@@ -66,6 +66,10 @@ export default function RuleSet( { saveProject }) {
                 <td className="title">SCALE</td>
                 <td className="cube res" id="scale-text">{scaleEl}</td>
             </tr>
+            <tr>
+                <td className="title">SCALE TONES</td>
+                <div className ="cube">{tonesEl}</div>      
+            </tr>
             <tr className="zone">
                 <td className="title">BPM</td>
                 <td className="cube res" id ="bpm-text">{bpmEl}</td>
@@ -74,7 +78,7 @@ export default function RuleSet( { saveProject }) {
                 <td className="title">SOUND</td>
                 <td className="cube res" id="sound-text">{soundEl}</td>
             </tr>
-            <div className ="cube">{tonesEl}</div>      
+            
             <button onClick={(e) => {rollDice()}} className ="cube">🎲</button>
         </table>
     )

@@ -38,15 +38,16 @@ export default function Progress({ saveProject }) {
                 {
                     items.map(item => {
                         return (
-                                <td>
+                                <th>
                                     <button onClick={(e) => {deleteItem(item)}}>🗑</button>
+                                    <button onClick={(e) => {flipStatus(item)}}>✓</button>
                                     <div>
                                         {item.isDone ? 
-                                        <div className='not-crossed' onClick={(e) => {flipStatus(item)}}>✓ {item.title}</div>
+                                        <div className='crossed'>{item.title}</div>
                                         :
-                                        <div className='crossed' onClick={(e) => {flipStatus(item)}}>✓ {item.title}</div>}
+                                        <div className='not-crossed'>{item.title}</div>}
                                     </div>
-                                </td>
+                                </th>
                         )
                     })
                 }
