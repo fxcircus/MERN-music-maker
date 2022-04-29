@@ -3,16 +3,18 @@ import { createProject } from '../../utilities/projects'
 
 export default function NewProject({ loadProject }) {
     const [currentText, setCurrentText] = useState ({})
+    // const [returnedProject, setReturnedProject] = useState(null)
 
     const handleChange = (evt) => {
         setCurrentText({ ...currentText, [evt.target.name]: evt.target.value })
         // createProject(currentText)
     }
 
-    const handleSubmit = async(evt) => {
+    const handleSubmit = async (evt) => {
         evt.preventDefault()
         const response = await createProject(currentText)
-        loadProject(response._id)
+        // setReturnedProject(response)
+        loadProject(response.data)
     }
 
     return (
