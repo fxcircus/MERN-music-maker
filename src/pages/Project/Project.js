@@ -18,7 +18,7 @@ export default function Project() {
         bpmVal: 120,
         soundVal: "GUITAR",
         itemsVal: [],
-        notesVal: ""
+        notesVal: "",
     })
 
     const saveProject = (newAttr) => {

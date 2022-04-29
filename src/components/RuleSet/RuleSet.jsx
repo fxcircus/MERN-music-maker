@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 
-export default function RuleSet( { saveProject }) {
+export default function RuleSet( { saveProject, rules }) {
     const [rootEl, setRootEl] = useState('')
     const [scaleEl, setScaleEl] = useState('')
     const [tonesEl, setTonesEl] = useState('')
@@ -50,11 +50,13 @@ export default function RuleSet( { saveProject }) {
         })
     }
 
-    // Initial choices:
     useEffect(() => {
-        // rollDice()
+        setRootEl(rules.rootVal)
+        setScaleEl(rules.scaleVal)
+        setTonesEl(rules.tonesVal)
+        setBpmEl(rules.bpmVal)
+        setSoundEl(rules.soundVal)
     },[])
-
 
     return (
         <table>
