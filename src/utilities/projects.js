@@ -1,6 +1,30 @@
 import axios from 'axios'
-const URL = 'http://localhost:3001/projects'
+const URL = 'http://localhost:3001/api/projects'
 
+export async function createProject(projectTitle) {
+    try {
+        console.log(projectTitle)
+        const theTitle = projectTitle.title
+        const fetchedProject = await axios ({
+            method: 'post',
+            url: `${URL}`,
+            data: {
+                title: theTitle,
+                timeVal: 900,
+                rootVal: "C",
+                scaleVal: "MAJOR",
+                tonesVal: "T - T - S - T - T - T - S",
+                bpmVal: 120,
+                soundVal: "GUITAR",
+                itemsVal: [],
+                notesVal: ""
+            }
+        })
+        return fetchedProject
+    } catch(error) {
+        console.log(error)
+    }
+}
 
 export async function updateProject(project) {
     try {

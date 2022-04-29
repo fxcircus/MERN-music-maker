@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
+import { createProject } from '../../utilities/projects'
 
-export default function NewProject({ createProject, projectTitle }) {
+export default function NewProject({ loadProject }) {
     const [currentText, setCurrentText] = useState ({})
 
     const handleChange = (evt) => {
@@ -8,14 +9,12 @@ export default function NewProject({ createProject, projectTitle }) {
         // createProject(currentText)
     }
 
-    const handleSubmit = () => {
-
+    const handleSubmit = async(evt) => {
+        evt.preventDefault()
+        const response = await createProject(currentText)
+        loadProject(response._id)
     }
 
-    useEffect(() => {
-        // setCurrentText({title: projectTitle})
-    },[])
-    
     return (
         <form autoComplete="off" onSubmit={handleSubmit}>
             <input

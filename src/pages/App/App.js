@@ -8,7 +8,7 @@ import Project from '../Project/Project'
 export default function App() {
     const [user, setUser ] = useState(null)
     
-    const loadProject = () => {
+    const loadProject = (projectTitle) => {
 
     }
     
