@@ -39,9 +39,9 @@ export default function Project() {
         <main className='Project'>
             <Title saveProject={saveProject} projectTitle={savedProject.title}/>
             <hr/>
-            <TimeTracker saveProject={saveProject}/>
+            <TimeTracker saveProject={saveProject} time={savedProject.timeVal}/>
             <hr/>
-            <RuleSet saveProject={saveProject}/>
+            <RuleSet saveProject={saveProject} rules={savedProject}/>
             <hr/>
             <table>
                 <Progress saveProject={saveProject}/>

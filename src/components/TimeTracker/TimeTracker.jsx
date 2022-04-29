@@ -1,9 +1,8 @@
 import { useState, useEffect, useRef } from 'react'
 
-export default function TimeTracker({ saveProject }) {
+export default function TimeTracker({ saveProject, time }) {
     const [seconds, setSeconds] = useState(900)
-    const [isOn, setIsOn] = useState(true)
-    // let refTime = useRef(900)
+    const [isOn, setIsOn] = useState(false)
     const INTERVAL_MS = 1000
 
     const handleClick = (timerState) => {
@@ -18,7 +17,7 @@ export default function TimeTracker({ saveProject }) {
     }
 
     useEffect(() => {
-        // intervalID()
+        setSeconds(time)
         let interval
         if(isOn) {
             interval = setInterval(() => {

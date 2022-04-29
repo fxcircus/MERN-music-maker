@@ -11,6 +11,7 @@ export default function Title({ saveProject, projectTitle }) {
     useEffect(() => {
         setCurrentText({title: projectTitle})
     },[])
+    
     return (
         <input
             type="text"
