@@ -6,6 +6,7 @@ import Notes from '../../components/Notes/Notes'
 import RuleSet from '../../components/RuleSet/RuleSet'
 import { updateProject, getProject } from '../../utilities/projects'
 import { useParams } from "react-router-dom"
+import NavBar from '../../components/NavBar/NavBar'
 
 export default function Project() {
     const params = useParams()
@@ -33,18 +34,23 @@ export default function Project() {
     const loaded = () => {
         return (
             <main className='Project'>
-                <Title saveProject={saveProject} projectTitle={savedProject.title}/>
-                <hr/>
-                <TimeTracker saveProject={saveProject} time={savedProject.timeVal}/>
-                <hr/>
-                <RuleSet saveProject={saveProject} rules={savedProject}/>
-                <hr/>
-                <table>
-                    <Progress saveProject={saveProject}/>
-                </table>
-                <hr/>
-                <Notes saveProject={saveProject} notes={savedProject.notesVal}/>
-                <button onClick={(e) => {uploadSave()}}>Save</button>
+                <div className='nav-zone'>
+                    <NavBar/>
+                </div>
+                <div className='project-zone'>
+                    <Title saveProject={saveProject} projectTitle={savedProject.title}/>
+                    <hr/>
+                    <TimeTracker saveProject={saveProject} time={savedProject.timeVal}/>
+                    <hr/>
+                    <RuleSet saveProject={saveProject} rules={savedProject}/>
+                    <hr/>
+                    <table>
+                        <Progress saveProject={saveProject}/>
+                    </table>
+                    <hr/>
+                    <Notes saveProject={saveProject} notes={savedProject.notesVal}/>
+                    <button onClick={(e) => {uploadSave()}}>Save</button>
+                </div>
             </main>
         )
     }
