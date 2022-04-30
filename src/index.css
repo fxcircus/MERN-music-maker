@@ -12,6 +12,8 @@
 
 .nav-zone {
     width: 10vw;
+    background: var(--nav-back-color);
+    border-right: solid var(--divider-color);
 }
 
 .project-zone {
@@ -40,8 +42,6 @@ hr {
 .nav-bar {
     display: flex;
     flex-direction: column;
-    background: var(--nav-back-color);
-    border-right: solid var(--divider-color);
 }
 
 button {

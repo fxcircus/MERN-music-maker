@@ -25,7 +25,7 @@ export default function Notes({ saveProject, notes }) {
                 name="newText"
                 onChange={handleChange}
                 value={text.newText}
-                rows="15" cols="50"
+                rows="20" cols="110"
             />
         </div>
     )

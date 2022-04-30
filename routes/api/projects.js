@@ -14,4 +14,7 @@ router.get('/:id', projectsCtrl.getProject)
 // PUT /api/projects/:id
 router.put('/:id', projectsCtrl.updateProject)
 
+// DELETE /api/projects/:id
+router.delete('/delete-all', projectsCtrl.deleteAllProjects)
+
 module.exports = router

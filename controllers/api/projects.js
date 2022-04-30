@@ -4,7 +4,8 @@ module.exports = {
     create,
     getProject,
     updateProject,
-    getProjects
+    getProjects,
+    deleteAllProjects
 }
 
 // Create 
@@ -49,4 +50,14 @@ async function updateProject(req, res) {
             res.status(400).json(err)
         }
     })
+}
+
+// Delete
+async function deleteAllProjects(req, res) {
+    try {
+        const projects = await Project.deleteMany({})
+        res.status(200).json(projects)
+    } catch(e) {
+        res.status(400).json(e)
+    }
 }
