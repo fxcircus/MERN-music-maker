@@ -17,7 +17,7 @@ async function create(req, res) {
     }
 }
 
-// Read
+// Read (ALL projects)
 async function getProjects(req, res) {
     try {
         const projects = await Project.find({})
@@ -27,8 +27,7 @@ async function getProjects(req, res) {
     }
 }
 
-
-
+// Read (ONE project)
 async function getProject(req, res) {
     const { id } = req.params
     try {

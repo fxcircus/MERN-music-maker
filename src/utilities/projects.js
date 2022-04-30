@@ -10,6 +10,15 @@ export async function getProjects() {
     }
 }
 
+export async function getProject(id) {
+    try {
+        const fetchedProject = await axios.get(`${URL}/${id}`)
+        return fetchedProject.data
+    } catch(error){
+        console.log(error)
+    }
+}
+
 export async function createProject(projectTitle) {
     try {
         console.log(projectTitle)
