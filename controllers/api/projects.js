@@ -3,7 +3,8 @@ const Project = require('../../models/Project')
 module.exports = {
     create,
     getProject,
-    updateProject
+    updateProject,
+    getProjects
 }
 
 // Create 
@@ -17,6 +18,17 @@ async function create(req, res) {
 }
 
 // Read
+async function getProjects(req, res) {
+    try {
+        const projects = await Project.find({})
+        res.status(200).json(projects)
+    } catch(e) {
+        res.status(400).json(e)
+    }
+}
+
+
+
 async function getProject(req, res) {
     const { id } = req.params
     try {

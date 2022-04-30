@@ -1,6 +1,15 @@
 import axios from 'axios'
 const URL = 'http://localhost:3001/api/projects'
 
+export async function getProjects() {
+    try {
+        const fetchedProjects = await axios.get(URL)
+        return fetchedProjects
+    } catch(error){
+        console.log(error)
+    }
+}
+
 export async function createProject(projectTitle) {
     try {
         console.log(projectTitle)

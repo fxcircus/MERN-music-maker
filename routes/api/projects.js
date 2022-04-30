@@ -6,6 +6,9 @@ const projectsCtrl = require('../../controllers/api/projects')
 router.post('/', projectsCtrl.create)
 
 // GET /api/projects
+router.get('/', projectsCtrl.getProjects)
+
+// GET /api/projects
 router.get('/:id', projectsCtrl.getProject)
 
 // UPDATE /api/projects
