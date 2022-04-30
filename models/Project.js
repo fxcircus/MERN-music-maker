@@ -8,7 +8,7 @@ const projectSchema = new Schema({
     scaleVal: String,
     tonesVal: String,
     bpmVal: Number,
-    soundVal: Array,
+    soundVal: String,
     itemsVal: Array,
     notesVal: String,
 }, {

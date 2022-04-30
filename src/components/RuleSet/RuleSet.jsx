@@ -46,7 +46,7 @@ export default function RuleSet( { saveProject, rules }) {
             scaleVal: scaleEl,
             tonesVal: tonesEl,
             bpmVal: bpmEl,
-            soundVal: sounds
+            soundVal: soundEl
         })
     }
 

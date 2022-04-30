@@ -43,7 +43,7 @@ export default function Project() {
                     <Progress saveProject={saveProject}/>
                 </table>
                 <hr/>
-                <Notes saveProject={saveProject}/>
+                <Notes saveProject={saveProject} notes={savedProject.notesVal}/>
                 <button onClick={(e) => {uploadSave()}}>Save</button>
             </main>
         )
