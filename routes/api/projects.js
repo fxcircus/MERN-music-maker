@@ -8,10 +8,10 @@ router.post('/', projectsCtrl.create)
 // GET /api/projects
 router.get('/', projectsCtrl.getProjects)
 
-// GET /api/projects
+// GET /api/projects/:id
 router.get('/:id', projectsCtrl.getProject)
 
-// UPDATE /api/projects
+// PUT /api/projects/:id
 router.put('/:id', projectsCtrl.updateProject)
 
 module.exports = router

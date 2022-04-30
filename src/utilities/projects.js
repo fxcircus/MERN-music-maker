@@ -46,10 +46,12 @@ export async function createProject(projectTitle) {
 
 export async function updateProject(project) {
     try {
+        const projectId = project._id
         const fetchedProject = await axios ({
             method: 'put',
-            url: `${URL}/projects`,
+            url: `${URL}/${projectId}`,
             data: {
+                title: project.title,
                 timeVal: project.timeVal,
                 rootVal: project.rootVal,
                 scaleVal: project.scaleVal,
@@ -59,8 +61,8 @@ export async function updateProject(project) {
                 itemsVal: project.itemsVal,
                 notesVal: project.notesVal
             }
-
         })
+        console.log(fetchedProject)
         return fetchedProject
     } catch(error) {
         console.error(error)

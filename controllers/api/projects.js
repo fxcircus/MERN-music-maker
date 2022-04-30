@@ -41,8 +41,8 @@ async function getProject(req, res) {
 // Update
 async function updateProject(req, res) {
     const { body } = req
-
-    Project.findByIdAndUpdate({}, body, {new: true}, (err, updatedProject) => {
+    const { id } = req.params
+    Project.findByIdAndUpdate(id, body, {new: true}, (err, updatedProject) => {
         if(!err) {
             res.status(200).json(updatedProject)
         } else {
