@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Orbitron&display=swap');
 
 :root {
-    --nav-back-color: whitesmoke;
+    --nav-back-color: #2e2f33;
     --divider-color: lightgray;
 }
 
@@ -20,6 +20,7 @@
     width: 85vw;
     height: 100vh;
     margin-left: 10px;
+    /* background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%); */
 }
 
 body, button, input, a, textarea {
@@ -52,6 +53,7 @@ button {
 
 .nav-button {
     background: none;
+    color: white;
 }
 
 button:hover {
