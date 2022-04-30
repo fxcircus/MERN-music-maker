@@ -1,9 +1,6 @@
 import { useState, useEffect } from 'react'
 import { getProjects } from '../../utilities/projects'
-
-
-
-
+import { Link } from 'react-router-dom'
 
 export default function Projects() {
     const [returnedProjects, setReturnedProjects] = useState([])
@@ -23,9 +20,9 @@ export default function Projects() {
                 {
                     returnedProjects.map(item => {
                         return (
-                                <div>
-                                    {item.title}
-                                </div>
+                            <div>
+                                <Link to={`/project/${item._id}`}>{item.title}</Link>
+                            </div>
                         )
                     })
                 }
