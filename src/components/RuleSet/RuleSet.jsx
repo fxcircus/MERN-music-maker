@@ -40,14 +40,6 @@ export default function RuleSet( { saveProject, rules }) {
             bpmVal = minBpm
         }
         setBpmEl(bpmVal)
-        
-        saveProject({
-            rootVal: rootEl,
-            scaleVal: scaleEl,
-            tonesVal: tonesEl,
-            bpmVal: bpmEl,
-            soundVal: soundEl
-        })
     }
 
     useEffect(() => {
@@ -57,6 +49,16 @@ export default function RuleSet( { saveProject, rules }) {
         setBpmEl(rules.bpmVal)
         setSoundEl(rules.soundVal)
     },[])
+
+    useEffect(() => {
+        saveProject({
+            rootVal: rootEl,
+            scaleVal: scaleEl,
+            tonesVal: tonesEl,
+            bpmVal: bpmEl,
+            soundVal: soundEl
+        })
+    },[rootEl])
 
     return (
         <table>

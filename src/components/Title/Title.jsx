@@ -5,12 +5,16 @@ export default function Title({ saveProject, projectTitle }) {
 
     const handleChange = (evt) => {
         setCurrentText({ ...currentText, [evt.target.name]: evt.target.value })
-        saveProject(currentText)
+        
     }
 
     useEffect(() => {
         setCurrentText({title: projectTitle})
     },[])
+
+    useEffect(() => {
+        saveProject(currentText)
+    },[currentText])
     
     return (
         <input

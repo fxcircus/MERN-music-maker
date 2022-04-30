@@ -12,7 +12,6 @@ export default function Progress({ saveProject }) {
     const getItems = async() => {
         const response = await getAllItems()
         setItems(response.data)
-        saveProject({ itemsVal: items})
     }
 
     const flipStatus = async(item) => {
@@ -29,6 +28,10 @@ export default function Progress({ saveProject }) {
     useEffect(()=> {
         getItems()
     }, [render])
+
+    useEffect(() => {
+        saveProject(items)
+    },[items])
 
     return (
         <main className='progress-component'>

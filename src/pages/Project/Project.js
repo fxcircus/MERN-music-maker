@@ -31,6 +31,10 @@ export default function Project() {
         loadProject(projectId)
     },[])
 
+    useEffect(() => {
+        console.log(savedProject)
+    },[savedProject])
+
     const loaded = () => {
         return (
             <main className='Project'>
