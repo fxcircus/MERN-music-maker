@@ -41,8 +41,8 @@ export default function Progress({ saveProject }) {
                     items.map(item => {
                         return (
                                 <th>
-                                    <button onClick={(e) => {deleteItem(item)}}>🗑</button>
-                                    <button onClick={(e) => {flipStatus(item)}}>✓</button>
+                                    <button className='item-button' onClick={(e) => {deleteItem(item)}}>🗑</button>
+                                    <button className='item-button' onClick={(e) => {flipStatus(item)}}>✓</button>
                                     <div>
                                         {item.isDone ? 
                                         <div className='crossed'>{item.title}</div>
