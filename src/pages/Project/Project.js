@@ -11,7 +11,8 @@ import NavBar from '../../components/NavBar/NavBar'
 export default function Project() {
     const params = useParams()
     const projectId = params.id
-    const [savedProject, setSavedProject] = useState({})
+    const [ savedProject, setSavedProject ] = useState({})
+    const [ render, setRender ] = useState(false)
 
     const saveProject = (newAttr) => {
         setSavedProject({...savedProject, ...newAttr})
@@ -29,17 +30,13 @@ export default function Project() {
 
     useEffect(() => {
         loadProject(projectId)
-    },[])
-
-    useEffect(() => {
-        console.log(savedProject)
-    },[savedProject])
+    },[render])
 
     const loaded = () => {
         return (
             <main className='Project'>
                 <div className='nav-zone'>
-                    <NavBar/>
+                    <NavBar setRender={setRender} render={render}/>
                 </div>
                 <div className='project-zone'>
                     <Title saveProject={saveProject} projectTitle={savedProject.title}/>

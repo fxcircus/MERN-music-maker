@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { getProjects } from '../../utilities/projects'
 import { Link } from 'react-router-dom'
 
-export default function NavBar() {
+export default function NavBar({ setRender, render }) {
     const [returnedProjects, setReturnedProjects] = useState([])
 
     const loadProjects = async () => {
@@ -10,17 +10,25 @@ export default function NavBar() {
         setReturnedProjects(response.data)
     }
 
+    const handleClick = () => {
+        setRender(!render)
+    }
+
     useEffect(() => {
         loadProjects()
     }, [])
 
     return (
-        <main className='progress-component'>
+        <main className='nav-bar'>
                 {
                     returnedProjects.map(item => {
                         return (
                             <div>
-                                <Link to={`/project/${item._id}`}>{item.title}</Link>
+                                <Link to={`/project/${item._id}`}>
+                                    <button className='nav-button' onClick={handleClick}>
+                                        {item.title}
+                                    </button>
+                                </Link>
                             </div>
                         )
                     })
