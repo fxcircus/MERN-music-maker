@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 
-export default function Title({ saveProject, projectTitle }) {
+export default function Title({ saveProject, projectTitle, render }) {
     const [currentText, setCurrentText] = useState ({})
 
     const handleChange = (evt) => {
@@ -15,6 +15,10 @@ export default function Title({ saveProject, projectTitle }) {
     useEffect(() => {
         saveProject(currentText)
     },[currentText])
+
+    useEffect(() => {
+            
+    },[render])
     
     return (
         <input

@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-export default function Form( { createItem, getItems }) {
+export default function Form( { createItem, getItems, projectId }) {
     const [formData, setFormData] = useState({
         title:""
     })
@@ -11,18 +11,19 @@ export default function Form( { createItem, getItems }) {
 
     const handleSubmit = async (event) => {
         event.preventDefault()
-        await createItem(formData)
+        await createItem(formData, projectId)
         getItems()
     }
 
     return (
         <form onSubmit={handleSubmit}>
-            <label>New task:</label>
+            {/* <label>New task:</label> */}
             <input
                 type="text"
                 name="title"
                 onChange={handleChange}
                 value={formData.newToDo}
+                placeholder='New task'
             />
         </form>
     )

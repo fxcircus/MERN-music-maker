@@ -14,14 +14,12 @@ export default function NavBar({ setRender, render }) {
 
     const handleChange = (evt) => {
         setCurrentText({ ...currentText, [evt.target.name]: evt.target.value })
-        // createProject(currentText)
     }
 
     const handleSubmit = async (evt) => {
         evt.preventDefault()
         const response = await createProject(currentText)
         setReturnedProject(response)
-        // loadProject(response.data)
     }
 
     const handleClick = () => {
@@ -29,8 +27,9 @@ export default function NavBar({ setRender, render }) {
     }
 
     useEffect(() => {
+        // console.log('clicked')
         loadProjects()
-    }, [])
+    }, [render])
 
     return (
         <main className='nav-bar'>

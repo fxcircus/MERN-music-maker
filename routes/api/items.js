@@ -14,4 +14,8 @@ router.put('/:id', itemsCtrl.flipStatus)
 // DELETE /api/items/_id
 router.delete('/:id', itemsCtrl.deleteItem)
 
+
+// GET /Show route /api/items/:id
+router.get('/:id', itemsCtrl.getProjectItems)
+
 module.exports = router

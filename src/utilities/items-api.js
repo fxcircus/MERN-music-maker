@@ -3,12 +3,15 @@ import { Link } from 'react-router-dom'
 
 const URL = 'http://localhost:3001/api'
 
-export async function createItem(data) {
+export async function createItem(formData, projectId) {
     try {
         const newItem = await axios ({
             method: 'post',
             url: `${URL}/items`,
-            data: {title: data.title}
+            data: {
+                title: formData.title,
+                parentProjectId: projectId
+            }
         })
         return newItem
     } catch (error) {
@@ -19,6 +22,15 @@ export async function createItem(data) {
 export async function getAllItems() {
     try {
         const itemArr = await axios.get(`${URL}/items`)
+        return itemArr
+    } catch(error) {
+        console.error(error)
+    }
+}
+
+export async function getProjectItems(projectId) {
+    try {
+        const itemArr = await axios.get(`${URL}/items/${projectId}`)
         return itemArr
     } catch(error) {
         console.error(error)

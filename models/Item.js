@@ -8,6 +8,7 @@ const itemSchema = new Schema({
         required: false,
         default: false
     },
+    parentProjectId: String,
     project: { type: Schema.Types.ObjectId, ref: 'Project' }
 }, {
     timestamps: true

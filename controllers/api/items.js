@@ -4,7 +4,8 @@ module.exports = {
     create,
     getAllItems,
     flipStatus,
-    deleteItem
+    deleteItem,
+    getProjectItems
 }
 
 // Create 
@@ -21,6 +22,16 @@ async function create(req, res) {
 async function getAllItems(req, res) {
     try {
         const tasks = await Item.find({})
+        res.status(200).json(tasks)
+    } catch(e) {
+        res.status(400).json(e)
+    }
+}
+
+async function getProjectItems(req, res) {
+    const id = req.params.id
+    try {
+        const tasks = await Item.find({ parentProjectId:id })
         res.status(200).json(tasks)
     } catch(e) {
         res.status(400).json(e)

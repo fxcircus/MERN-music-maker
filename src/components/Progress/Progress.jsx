@@ -1,16 +1,17 @@
 import { useState, useEffect } from 'react'
-import { getAllItems,  flipItemStatus, deleteAnItem, createItem } from '../../utilities/items-api'
+import { getAllItems, getProjectItems, flipItemStatus, deleteAnItem, createItem } from '../../utilities/items-api'
 import NewItemForm from '../../components/NewItemForm/NewItemForm'
 import { Link } from 'react-router-dom'
 
 // import axios from 'axios'
 
-export default function Progress({ saveProject }) {
+export default function Progress({ saveProject, projectId }) {
     const [items, setItems] = useState([])
     const [render, setRender] = useState(false)
 
     const getItems = async() => {
-        const response = await getAllItems()
+        // const response = await getAllItems()
+        const response = await getProjectItems(projectId)
         setItems(response.data)
     }
 
@@ -35,7 +36,7 @@ export default function Progress({ saveProject }) {
 
     return (
         <main className='progress-component'>
-            <NewItemForm createItem={createItem} getItems={getItems}/>
+            <NewItemForm createItem={createItem} getItems={getItems} projectId={projectId}/>
             <tr>
                 {
                     items.map(item => {

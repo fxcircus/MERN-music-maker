@@ -24,7 +24,6 @@ export default function AuthPage({ setUser }) {
                     { showSignUp ? 'Or log In' : `New user? Sign Up`}
                 </button>
             </div>
-            {/* <img src='/mmmhomepg.png'/> */}
         </main>
     )
 }

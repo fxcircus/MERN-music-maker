@@ -32,6 +32,10 @@ export default function Project() {
         loadProject(projectId)
     },[render])
 
+    // useEffect(() => {
+    //     console.log(`loading project`)
+    // },[savedProject])
+
     const loaded = () => {
         return (
             <main className='Project'>
@@ -39,14 +43,14 @@ export default function Project() {
                     <NavBar setRender={setRender} render={render}/>
                 </div>
                 <div className='project-zone'>
-                    <Title saveProject={saveProject} projectTitle={savedProject.title}/>
+                    <Title saveProject={saveProject} projectTitle={savedProject.title} render={render}/>
                     <hr/>
                     <TimeTracker saveProject={saveProject} time={savedProject.timeVal}/>
                     <hr/>
                     <RuleSet saveProject={saveProject} rules={savedProject}/>
                     <hr/>
                     <table>
-                        <Progress saveProject={saveProject}/>
+                        <Progress saveProject={saveProject} projectId={savedProject._id}/>
                     </table>
                     <hr/>
                     <Notes saveProject={saveProject} notes={savedProject.notesVal}/>
