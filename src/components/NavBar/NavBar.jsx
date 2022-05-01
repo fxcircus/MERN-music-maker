@@ -1,13 +1,27 @@
 import { useState, useEffect } from 'react'
-import { getProjects } from '../../utilities/projects'
+import { getProjects, createProject } from '../../utilities/projects'
 import { Link } from 'react-router-dom'
 
 export default function NavBar({ setRender, render }) {
     const [returnedProjects, setReturnedProjects] = useState([])
+    const [currentText, setCurrentText] = useState ({})
+    const [returnedProject, setReturnedProject] = useState(null)
 
     const loadProjects = async () => {
         const response = await getProjects()
         setReturnedProjects(response.data)
+    }
+
+    const handleChange = (evt) => {
+        setCurrentText({ ...currentText, [evt.target.name]: evt.target.value })
+        // createProject(currentText)
+    }
+
+    const handleSubmit = async (evt) => {
+        evt.preventDefault()
+        const response = await createProject(currentText)
+        setReturnedProject(response)
+        // loadProject(response.data)
     }
 
     const handleClick = () => {
@@ -34,6 +48,16 @@ export default function NavBar({ setRender, render }) {
                     )
                 })
             }
+            <form autoComplete="off" onSubmit={handleSubmit}>
+                <input
+                    className='new-project-input'
+                    type="text"
+                    name="title"
+                    onChange={handleChange}
+                    value={currentText.title}
+                    placeholder="New Project"
+                />
+            </form>
         </main>
     )
 }

@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { createProject } from '../../utilities/projects'
-import NavBar from '../../components/NavBar/NavBar'
+// import NavBar from '../../components/NavBar/NavBar'
 
 export default function NewProject({ loadProject }) {
     const [ render, setRender ] = useState(false)
@@ -22,9 +22,9 @@ export default function NewProject({ loadProject }) {
 
     return (
         <main className='Project'>
-            <div className='nav-zone'>
+            {/* <div className='nav-zone'>
                     <NavBar setRender={setRender} render={render}/>
-            </div>
+            </div> */}
             <form autoComplete="off" onSubmit={handleSubmit}>
                 <input
                     type="text"

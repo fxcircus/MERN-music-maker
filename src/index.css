@@ -124,3 +124,20 @@ th {
     width: 30%;
     margin: 5px;
 }
+
+.new-project-input {
+    padding: 0 10px 0 10px;
+    margin: 0 5px 0 0;
+    color: white;
+    outline: none;
+    border: none;
+}
+
+/* .auth-page {
+    height: 100vh;
+    background-image: url('/public/mmmhomepg.png');
+    background-position: center; 
+    background-repeat: no-repeat;
+    background-size: cover;
+} */
+
