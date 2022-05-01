@@ -6,17 +6,25 @@ export default function AuthPage({ setUser }) {
     const [showSignUp, setShowSignUp] = useState(false)
     
     return (
-        <main>
-            <h1>AuthPage</h1>
-            <button onClick={() => setShowSignUp(!showSignUp)}>
-                { showSignUp ? 'Log In' : 'Sign Up'}
-            </button>
-            { showSignUp ? 
-            <SignUpForm setUser={setUser} /> :
-            <LoginForm setUser={setUser} />
-            }
-            
-            
+        <main className='auth-page'>
+            <img src='/MMM-logo.png'/>
+            <div className='login-zone'>
+                { showSignUp ?
+                    <div>
+                        <h1>Sign up</h1>
+                        <SignUpForm setUser={setUser} />
+                    </div>
+                     :
+                    <div>
+                        <h1>Log in</h1>
+                        <LoginForm setUser={setUser} />
+                    </div>
+                }
+                <button className='login-switch-btn' onClick={() => setShowSignUp(!showSignUp)}>
+                    { showSignUp ? 'Or log In' : `New user? Sign Up`}
+                </button>
+            </div>
+            {/* <img src='/mmmhomepg.png'/> */}
         </main>
     )
 }

@@ -63,15 +63,15 @@ export default function RuleSet( { saveProject, rules }) {
     return (
         <table>
             <tr className="zone">
-                <td className="title">ROOT</td>
+                <td className="title">Root</td>
                 <td className="cube res" id="root-text">{rootEl}</td>
             </tr>
             <tr className="zone">
-                <td className="title">SCALE</td>
+                <td className="title">Scale</td>
                 <td className="cube res" id="scale-text">{scaleEl}</td>
             </tr>
             <tr>
-                <td className="title">SCALE TONES</td>
+                <td className="title">Scale Tones</td>
                 <div className ="cube">{tonesEl}</div>      
             </tr>
             <tr className="zone">
@@ -79,7 +79,7 @@ export default function RuleSet( { saveProject, rules }) {
                 <td className="cube res" id ="bpm-text">{bpmEl}</td>
             </tr>
             <tr className="zone">
-                <td className="title">SOUND</td>
+                <td className="title">Sound</td>
                 <td className="cube res" id="sound-text">{soundEl}</td>
             </tr>
             

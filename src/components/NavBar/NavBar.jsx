@@ -20,19 +20,20 @@ export default function NavBar({ setRender, render }) {
 
     return (
         <main className='nav-bar'>
-                {
-                    returnedProjects.map(item => {
-                        return (
-                            <div>
-                                <Link to={`/project/${item._id}`}>
-                                    <button className='nav-button' onClick={handleClick}>
-                                        {item.title}
-                                    </button>
-                                </Link>
-                            </div>
-                        )
-                    })
-                }
+            <img className='navbar-logo' src='/MMM-white.png'/>
+            {
+                returnedProjects.map(item => {
+                    return (
+                        <div>
+                            <Link to={`/project/${item._id}`}>
+                                <button className='nav-button' onClick={handleClick}>
+                                    {item.title}
+                                </button>
+                            </Link>
+                        </div>
+                    )
+                })
+            }
         </main>
     )
 }
