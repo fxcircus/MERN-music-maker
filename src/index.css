@@ -3,7 +3,7 @@
 :root {
     --nav-back-color: #2e2f33;
     --divider-color: lightgray;
-    --shadow-color: #ccd0dd;
+    --shadow-color: #d8dcea;
 }
 
 .Project {
@@ -75,10 +75,10 @@ button:hover {
 }
 
 th {
-    /* border: outset; */
-    background: whitesmoke;
+    border: ridge;
+    background: white;
     border-radius: 5px;
-    box-shadow: 0px 5px 20px var(--shadow-color);
+    box-shadow: 0px 5px 10px var(--shadow-color);
 }
 
 .item-button {
@@ -93,10 +93,10 @@ th {
     max-width: 100px;
     margin: 0 0 5px 0;
     text-align: center;
-    /* border: outset ; */
-    background: whitesmoke;
+    border: ridge;
+    background: white;
     border-radius: 5px;
-    box-shadow: 0px 5px 20px var(--shadow-color);
+    /* box-shadow: 0px 5px 10px var(--shadow-color); */
 }
 
 .project-title {
