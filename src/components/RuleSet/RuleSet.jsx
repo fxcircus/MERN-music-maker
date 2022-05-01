@@ -64,23 +64,23 @@ export default function RuleSet( { saveProject, rules }) {
         <table>
             <tr className="zone">
                 <td className="title">Root</td>
-                <td className="cube res" id="root-text">{rootEl}</td>
+                <td className="rule-box" id="root-text">{rootEl}</td>
             </tr>
             <tr className="zone">
                 <td className="title">Scale</td>
-                <td className="cube res" id="scale-text">{scaleEl}</td>
+                <td className="rule-box" id="scale-text">{scaleEl}</td>
             </tr>
             <tr>
-                <td className="title">Scale Tones</td>
-                <div className ="cube">{tonesEl}</div>      
+                <td className="title">Tones</td>
+                <div className ="rule-box">{tonesEl}</div>      
             </tr>
             <tr className="zone">
                 <td className="title">BPM</td>
-                <td className="cube res" id ="bpm-text">{bpmEl}</td>
+                <td className="rule-box" id ="bpm-text">{bpmEl}</td>
             </tr>
             <tr className="zone">
                 <td className="title">Sound</td>
-                <td className="cube res" id="sound-text">{soundEl}</td>
+                <td className="rule-box" id="sound-text">{soundEl}</td>
             </tr>
             
             <button onClick={(e) => {rollDice()}} className ="cube">🎲</button>

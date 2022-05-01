@@ -150,6 +150,10 @@ th {
     margin-right: 40px;
 }
 
+.rule-box {
+    color: darkgray;
+}
+
 /* .auth-page {
     height: 100vh;
     background-image: url('/public/mmmhomepg.png');
