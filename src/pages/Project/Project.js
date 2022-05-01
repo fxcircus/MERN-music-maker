@@ -4,7 +4,7 @@ import Title from '../../components/Title/Title'
 import TimeTracker from '../../components/TimeTracker/TimeTracker'
 import Notes from '../../components/Notes/Notes'
 import RuleSet from '../../components/RuleSet/RuleSet'
-import { updateProject, getProject } from '../../utilities/projects'
+import { updateProject, getProject, deleteProject } from '../../utilities/projects'
 import { useParams } from "react-router-dom"
 import NavBar from '../../components/NavBar/NavBar'
 
@@ -26,6 +26,11 @@ export default function Project() {
     const uploadSave = async () => {
         const response = await updateProject(savedProject)
         console.log('saved')
+    }
+
+    const deleteThisProject = async () => {
+        const response = await deleteProject(savedProject._id)
+        console.log(`deleted ${response}`)
     }
 
     useEffect(() => {
@@ -54,7 +59,10 @@ export default function Project() {
                     </table>
                     <hr/>
                     <Notes saveProject={saveProject} notes={savedProject.notesVal}/>
-                    <button onClick={(e) => {uploadSave()}}>Save</button>
+                    <div className='project-button-area'>
+                        <button onClick={(e) => {uploadSave()}}>Save</button>
+                        <button onClick={(e) => {deleteThisProject()}}>Delete</button>
+                    </div>
                 </div>
             </main>
         )

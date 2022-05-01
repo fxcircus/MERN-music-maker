@@ -10,8 +10,8 @@ export default function Progress({ saveProject, projectId }) {
     const [render, setRender] = useState(false)
 
     const getItems = async() => {
-        // const response = await getAllItems()
-        const response = await getProjectItems(projectId)
+        // const response = await getAllItems() // GET - All Items from all projects
+        const response = await getProjectItems(projectId) // GET - only project specific items
         setItems(response.data)
     }
 

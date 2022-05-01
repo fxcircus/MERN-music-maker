@@ -68,3 +68,12 @@ export async function updateProject(project) {
         console.error(error)
     }
 }
+
+export async function deleteProject(id) {
+    try {
+        const deletedProjects = await axios.delete(`${URL}/${id}`)
+        return deletedProjects
+    } catch(error){
+        console.log(error)
+    }
+}

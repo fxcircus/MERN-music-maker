@@ -133,6 +133,15 @@ th {
     border: none;
 }
 
+.project-button-area {
+    display: flex; 
+}
+
+.project-button-area > button {
+    margin-top: 15px;
+    margin-right: 40px;
+}
+
 /* .auth-page {
     height: 100vh;
     background-image: url('/public/mmmhomepg.png');

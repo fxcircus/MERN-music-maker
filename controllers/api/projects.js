@@ -5,7 +5,8 @@ module.exports = {
     getProject,
     updateProject,
     getProjects,
-    deleteAllProjects
+    deleteAllProjects,
+    deleteOneProject
 }
 
 // Create 
@@ -52,11 +53,22 @@ async function updateProject(req, res) {
     })
 }
 
-// Delete
+// Delete all
 async function deleteAllProjects(req, res) {
     try {
         const projects = await Project.deleteMany({})
         res.status(200).json(projects)
+    } catch(e) {
+        res.status(400).json(e)
+    }
+}
+
+// Delete one
+async function deleteOneProject(req, res) {
+    const { id } = req.params
+    try {
+        const project = await Project.findByIdAndDelete(id)
+        res.status(200).json(project)
     } catch(e) {
         res.status(400).json(e)
     }
