@@ -37,10 +37,6 @@ export default function Project() {
         loadProject(projectId)
     },[render])
 
-    // useEffect(() => {
-    //     console.log(`loading project`)
-    // },[savedProject])
-
     const loaded = () => {
         return (
             <main className='Project'>

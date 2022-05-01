@@ -3,6 +3,7 @@
 :root {
     --nav-back-color: #2e2f33;
     --divider-color: lightgray;
+    --shadow-color: #ccd0dd;
 }
 
 .Project {
@@ -74,21 +75,28 @@ button:hover {
 }
 
 th {
-    border: outset ;
+    /* border: outset; */
+    background: whitesmoke;
+    border-radius: 5px;
+    box-shadow: 0px 5px 20px var(--shadow-color);
 }
 
 .item-button {
     height: 25px;
     width: 30px;
+    background-color: transparent;
 }
 
 .clock {
     font-size: large;
-    border: outset ;
     font-family: 'Orbitron', sans-serif;
     max-width: 100px;
     margin: 0 0 5px 0;
     text-align: center;
+    /* border: outset ; */
+    background: whitesmoke;
+    border-radius: 5px;
+    box-shadow: 0px 5px 20px var(--shadow-color);
 }
 
 .project-title {
@@ -128,7 +136,7 @@ th {
 .new-project-input {
     padding: 0 10px 0 10px;
     margin: 0 5px 0 0;
-    color: white;
+    color: rgb(198, 197, 197);
     outline: none;
     border: none;
 }
@@ -149,4 +157,3 @@ th {
     background-repeat: no-repeat;
     background-size: cover;
 } */
-
