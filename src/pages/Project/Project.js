@@ -19,6 +19,7 @@ export default function Project() {
     }
 
     const loadProject = async (id) => {
+        setSavedProject(null)
         const response = await getProject(id)
         setSavedProject(response)
     }
