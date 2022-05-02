@@ -19,6 +19,7 @@ export default function NavBar({ setRender, render }) {
     const handleSubmit = async (evt) => {
         evt.preventDefault()
         const response = await createProject(currentText)
+        setCurrentText({ title: "" })
         setReturnedProject(response)
     }
 
@@ -29,7 +30,7 @@ export default function NavBar({ setRender, render }) {
     useEffect(() => {
         // console.log('clicked')
         loadProjects()
-    }, [render])
+    }, [render, returnedProject])
 
     return (
         <main className='nav-bar'>

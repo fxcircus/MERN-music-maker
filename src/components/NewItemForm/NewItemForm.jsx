@@ -1,9 +1,10 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 export default function Form( { createItem, getItems, projectId }) {
-    const [formData, setFormData] = useState({
+    const [ formData, setFormData ] = useState({
         title:""
     })
+    
 
     const handleChange = (event) => {
         setFormData({...formData, [event.target.name]: event.target.value})
@@ -12,6 +13,7 @@ export default function Form( { createItem, getItems, projectId }) {
     const handleSubmit = async (event) => {
         event.preventDefault()
         await createItem(formData, projectId)
+        setFormData({ title: "" })
         getItems()
     }
 
@@ -22,7 +24,7 @@ export default function Form( { createItem, getItems, projectId }) {
                 type="text"
                 name="title"
                 onChange={handleChange}
-                value={formData.newToDo}
+                value={formData.title}
                 placeholder='New task'
             />
         </form>

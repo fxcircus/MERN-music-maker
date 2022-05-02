@@ -17,6 +17,7 @@ export default function NewProject({ loadProject }) {
         evt.preventDefault()
         const response = await createProject(currentText)
         setReturnedProject(response)
+        setCurrentText('')
         loadProject(response.data)
     }
 

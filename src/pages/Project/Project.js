@@ -66,7 +66,14 @@ export default function Project() {
     }
     
     const loading = () => {
-        return <div>loading</div>
+        return (
+            <main className='Project'>
+                <div className='nav-zone'>
+                    <NavBar setRender={setRender} render={render}/>
+                </div>
+                {/* <h2> loading...</h2> */}
+            </main>
+            )
     }
             
     return savedProject && savedProject.title ? loaded() : loading()
