@@ -6,6 +6,8 @@
     --shadow-color: #d8dcea;
 }
 
+
+
 .Project {
     display: flex;
     height: 100vh;
@@ -150,8 +152,46 @@ th {
     margin-right: 40px;
 }
 
+@keyframes anim-lineUp {
+    0% {
+      opacity: 0;
+      transform: translateY(80%);
+    }
+    20% {
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+      transform: translateY(0%);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0%);
+    }
+}
+
+.fade-in {
+    animation: 1s anim-lineUp ease-out;
+}
+
 .rule-box {
     color: darkgray;
+}
+
+.logo-img {
+    position: absolute;
+    bottom: 10px;
+    left: 20px;
+    border-radius: 50%;
+    max-width: 50px;
+    max-height: 50px;
+    border: solid var(--divider-color) 1.5px;
+    margin-top: 5px;
+}
+
+.logo-img:hover {
+    transform: scale(1.05);
+    transition: .3s ease;
 }
 
 /* .auth-page {

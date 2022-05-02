@@ -58,6 +58,9 @@ export default function NavBar({ setRender, render }) {
                     placeholder="New Project"
                 />
             </form>
+            <a href="https://github.com/fxcircus/MERN-music-maker" target="_blank" >
+                <img className="logo-img" src="/roy-pic.jpg" alt="logo-and-gitHub-repo-link" />
+            </a>
         </main>
     )
 }

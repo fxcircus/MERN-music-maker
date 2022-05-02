@@ -1,11 +1,12 @@
 import { useState, useEffect } from 'react'
 
 export default function RuleSet( { saveProject, rules }) {
-    const [rootEl, setRootEl] = useState('')
-    const [scaleEl, setScaleEl] = useState('')
-    const [tonesEl, setTonesEl] = useState('')
-    const [bpmEl, setBpmEl] = useState('')
-    const [soundEl, setSoundEl] = useState('')
+    const [ animate, setAnimate ] = useState (false)
+    const [ rootEl, setRootEl ] = useState('')
+    const [ scaleEl, setScaleEl ] = useState('')
+    const [ tonesEl, setTonesEl ] = useState('')
+    const [ bpmEl, setBpmEl ] = useState('')
+    const [ soundEl, setSoundEl ] = useState('')
 
     // Global Vars and arrays:
     const maxBpm = 140
@@ -25,7 +26,7 @@ export default function RuleSet( { saveProject, rules }) {
 
     // Generate new rules:
     const rollDice = () => {
-        
+        setAnimate(false)
         setRootEl(roots[getIndex(roots.length)])
         setSoundEl(sounds[getIndex(sounds.length)])
         setScaleEl(scales[getIndex(scales.length)])
@@ -40,6 +41,8 @@ export default function RuleSet( { saveProject, rules }) {
             bpmVal = minBpm
         }
         setBpmEl(bpmVal)
+
+        setAnimate(true)
     }
 
     useEffect(() => {
@@ -64,23 +67,23 @@ export default function RuleSet( { saveProject, rules }) {
         <table>
             <tr className="zone">
                 <td className="title">Root</td>
-                <td className="rule-box" id="root-text">{rootEl}</td>
+                <td className={animate ? "fade-in rule-box" : "rule-box"} >{rootEl}</td>
             </tr>
             <tr className="zone">
                 <td className="title">Scale</td>
-                <td className="rule-box" id="scale-text">{scaleEl}</td>
+                <td className={animate ? "fade-in rule-box" : "rule-box"}>{scaleEl}</td>
             </tr>
             <tr>
                 <td className="title">Tones</td>
-                <div className ="rule-box">{tonesEl}</div>      
+                <div className ={animate ? "fade-in rule-box" : "rule-box"}>{tonesEl}</div>      
             </tr>
             <tr className="zone">
                 <td className="title">BPM</td>
-                <td className="rule-box" id ="bpm-text">{bpmEl}</td>
+                <td className={animate ? "fade-in rule-box" : "rule-box"}>{bpmEl}</td>
             </tr>
             <tr className="zone">
                 <td className="title">Sound</td>
-                <td className="rule-box" id="sound-text">{soundEl}</td>
+                <td className={animate ? "fade-in rule-box" : "rule-box"}>{soundEl}</td>
             </tr>
             
             <button onClick={(e) => {rollDice()}} className ="cube">🎲</button>
