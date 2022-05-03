@@ -21,13 +21,14 @@ export async function getProject(id) {
 
 export async function createProject(projectTitle, userEmail) {
     try {
-        console.log(projectTitle)
+        // console.log(projectTitle)
         const theTitle = projectTitle.title
+        const theEmail = userEmail
         const fetchedProject = await axios ({
             method: 'post',
             url: `${URL}`,
             data: {
-                userEmail: userEmail,
+                userEmail: theEmail,
                 title: theTitle,
                 timeVal: 900,
                 rootVal: "C",

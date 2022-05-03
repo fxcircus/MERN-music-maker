@@ -5,7 +5,7 @@ const projectsCtrl = require('../../controllers/api/projects')
 // POST /api/projects
 router.post('/', projectsCtrl.create)
 
-// GET /api/projects
+// GET /api/projects/all/email
 router.get('/all/:email', projectsCtrl.getProjects)
 
 // GET /api/projects/:id

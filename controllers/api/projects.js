@@ -22,9 +22,9 @@ async function create(req, res) {
 
 // Read (ALL projects)
 async function getProjects(req, res) {
-    const { userEmail } = req.params
+    const { email } = req.params
     try {
-        const projects = await Project.find({ userEmail: userEmail })
+        const projects = await Project.find({ userEmail: email })
         res.status(200).json(projects)
     } catch(e) {
         res.status(400).json(e)
