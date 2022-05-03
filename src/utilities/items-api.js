@@ -1,7 +1,8 @@
 import axios from 'axios'
 import { Link } from 'react-router-dom'
 
-const URL = 'http://localhost:3001/api'
+// const URL = 'http://localhost:3001/api'
+const URL = `https://mern-music-maker.herokuapp.com/api`
 
 export async function createItem(formData, projectId) {
     try {

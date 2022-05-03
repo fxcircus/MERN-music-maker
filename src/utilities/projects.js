@@ -1,5 +1,6 @@
 import axios from 'axios'
-const URL = 'http://localhost:3001/api/projects'
+// const URL = 'http://localhost:3001/api/projects'
+const URL = `https://mern-music-maker.herokuapp.com/api/projects`
 
 export async function getProjects(userEmail) {
     try {
