@@ -8,6 +8,7 @@ export default function NavBar({ setRender, render, userEmail }) {
     const [returnedProject, setReturnedProject] = useState(null)
 
     const loadProjects = async () => {
+        setReturnedProjects([])
         console.log(userEmail)
         const response = await getProjects(userEmail)
         setReturnedProjects(response.data)
@@ -33,48 +34,56 @@ export default function NavBar({ setRender, render, userEmail }) {
         loadProjects()
     }, [render, returnedProject])
 
-    return (
-        <main className='nav-bar'>
+    const loaded = () => {
+        return (
+            <main className='nav-bar'>
+    
+                <Link to={'/'} >
+                    <img className='navbar-logo' src='/MMM-white.png'/>
+                </Link>
+    
+                <div className='user-area'>
+                    <hr/>
+                    <p>{userEmail}</p>
+                    <hr/>
+                </div>
+                
+                {
+                    returnedProjects.map(item => {
+                        return (
+                            <div>
+                                <Link to={`/project/${item._id}`}>
+                                    <button className='nav-button' onClick={handleClick}>
+                                        {item.title}
+                                    </button>
+                                </Link>
+                            </div>
+                        )
+                    })
+                }
+    
+                <form autoComplete="off" onSubmit={handleSubmit}>
+                    <input
+                        className='new-project-input'
+                        type="text"
+                        name="title"
+                        onChange={handleChange}
+                        value={currentText.title}
+                        placeholder="New Project"
+                    />
+                </form>
+    
+                <a href="https://github.com/fxcircus/MERN-music-maker" target="_blank" >
+                    <img className="logo-img" src="/roy-pic.jpg" alt="logo-and-gitHub-repo-link" />
+                </a>
+            </main>
+        )
+    }
 
-            <Link to={'/'} >
-                <img className='navbar-logo' src='/MMM-white.png'/>
-            </Link>
+    const loading = () => {
+        return <p>loading</p>
+    }
+    
 
-            <div className='user-area'>
-                <hr/>
-                <p><ion-icon name="person-circle"></ion-icon>{userEmail}</p>
-                <hr/>
-            </div>
-            
-            {
-                returnedProjects.map(item => {
-                    return (
-                        <div>
-                            <Link to={`/project/${item._id}`}>
-                                <button className='nav-button' onClick={handleClick}>
-                                    {item.title}
-                                </button>
-                            </Link>
-                        </div>
-                    )
-                })
-            }
-
-            <form autoComplete="off" onSubmit={handleSubmit}>
-                <input
-                    className='new-project-input'
-                    type="text"
-                    name="title"
-                    onChange={handleChange}
-                    value={currentText.title}
-                    placeholder="New Project"
-                />
-            </form>
-
-            <a href="https://github.com/fxcircus/MERN-music-maker" target="_blank" >
-                <img className="logo-img" src="/roy-pic.jpg" alt="logo-and-gitHub-repo-link" />
-            </a>
-
-        </main>
-    )
+    return returnedProjects ? loaded() : loaded()
 }
