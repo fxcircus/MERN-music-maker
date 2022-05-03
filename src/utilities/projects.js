@@ -1,9 +1,9 @@
 import axios from 'axios'
 const URL = 'http://localhost:3001/api/projects'
 
-export async function getProjects() {
+export async function getProjects(userEmail) {
     try {
-        const fetchedProjects = await axios.get(URL)
+        const fetchedProjects = await axios.get(`${URL}/all/${userEmail}`)
         return fetchedProjects
     } catch(error){
         console.log(error)
@@ -19,7 +19,7 @@ export async function getProject(id) {
     }
 }
 
-export async function createProject(projectTitle) {
+export async function createProject(projectTitle, userEmail) {
     try {
         console.log(projectTitle)
         const theTitle = projectTitle.title
@@ -27,6 +27,7 @@ export async function createProject(projectTitle) {
             method: 'post',
             url: `${URL}`,
             data: {
+                userEmail: userEmail,
                 title: theTitle,
                 timeVal: 900,
                 rootVal: "C",

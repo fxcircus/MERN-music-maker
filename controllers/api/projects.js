@@ -6,7 +6,8 @@ module.exports = {
     updateProject,
     getProjects,
     deleteAllProjects,
-    deleteOneProject
+    deleteOneProject,
+    getFirstProject
 }
 
 // Create 
@@ -21,20 +22,31 @@ async function create(req, res) {
 
 // Read (ALL projects)
 async function getProjects(req, res) {
+    const { userEmail } = req.params
     try {
-        const projects = await Project.find({})
+        const projects = await Project.find({ email: userEmail })
         res.status(200).json(projects)
     } catch(e) {
         res.status(400).json(e)
     }
 }
 
-// Read (ONE project)
+// Read (Specific project)
 async function getProject(req, res) {
     const { id } = req.params
     try {
         const project = await Project.findById(id)
         res.status(200).json(project)
+    } catch(e) {
+        res.status(400).json(e)
+    }
+}
+
+// Read (First project)
+async function getFirstProject(req, res) {
+    try {
+        const projectArr = await Project.find({})
+        res.status(200).json(projectArr[0])
     } catch(e) {
         res.status(400).json(e)
     }

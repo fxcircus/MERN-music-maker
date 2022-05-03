@@ -2,13 +2,13 @@ import { useState, useEffect } from 'react'
 import { getProjects, createProject } from '../../utilities/projects'
 import { Link } from 'react-router-dom'
 
-export default function NavBar({ setRender, render }) {
+export default function NavBar({ setRender, render, userEmail }) {
     const [returnedProjects, setReturnedProjects] = useState([])
     const [currentText, setCurrentText] = useState ({})
     const [returnedProject, setReturnedProject] = useState(null)
 
     const loadProjects = async () => {
-        const response = await getProjects()
+        const response = await getProjects(userEmail)
         setReturnedProjects(response.data)
     }
 
@@ -18,7 +18,7 @@ export default function NavBar({ setRender, render }) {
 
     const handleSubmit = async (evt) => {
         evt.preventDefault()
-        const response = await createProject(currentText)
+        const response = await createProject(currentText, userEmail)
         setCurrentText({ title: "" })
         setReturnedProject(response)
     }
@@ -34,7 +34,11 @@ export default function NavBar({ setRender, render }) {
 
     return (
         <main className='nav-bar'>
-            <img className='navbar-logo' src='/MMM-white.png'/>
+
+            <Link to={'/'} >
+                <img className='navbar-logo' src='/MMM-white.png'/>
+            </Link>
+            
             {
                 returnedProjects.map(item => {
                     return (
@@ -48,6 +52,7 @@ export default function NavBar({ setRender, render }) {
                     )
                 })
             }
+
             <form autoComplete="off" onSubmit={handleSubmit}>
                 <input
                     className='new-project-input'
@@ -58,9 +63,11 @@ export default function NavBar({ setRender, render }) {
                     placeholder="New Project"
                 />
             </form>
+
             <a href="https://github.com/fxcircus/MERN-music-maker" target="_blank" >
                 <img className="logo-img" src="/roy-pic.jpg" alt="logo-and-gitHub-repo-link" />
             </a>
+
         </main>
     )
 }

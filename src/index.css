@@ -13,6 +13,11 @@
     height: 100vh;
 }
 
+.home-page {
+    display: flex;
+    height: 100vh;
+}
+
 .nav-zone {
     width: 10vw;
     background: var(--nav-back-color);
@@ -23,6 +28,17 @@
     width: 85vw;
     height: 100vh;
     margin-left: 10px;
+}
+
+.home-image-zone {
+    width: 85vw;
+    height: 100vh;
+    margin-left: 10px;
+}
+
+.home-image-zone > img{
+    height: 80%;
+    width: 100%;
 }
 
 body, button, input, a, textarea {
