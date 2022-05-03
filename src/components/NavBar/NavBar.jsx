@@ -8,6 +8,7 @@ export default function NavBar({ setRender, render, userEmail }) {
     const [returnedProject, setReturnedProject] = useState(null)
 
     const loadProjects = async () => {
+        console.log(userEmail)
         const response = await getProjects(userEmail)
         setReturnedProjects(response.data)
     }
@@ -38,6 +39,12 @@ export default function NavBar({ setRender, render, userEmail }) {
             <Link to={'/'} >
                 <img className='navbar-logo' src='/MMM-white.png'/>
             </Link>
+
+            <div className='user-area'>
+                <hr/>
+                <p><ion-icon name="person-circle"></ion-icon>{userEmail}</p>
+                <hr/>
+            </div>
             
             {
                 returnedProjects.map(item => {

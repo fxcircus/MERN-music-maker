@@ -24,7 +24,7 @@ async function create(req, res) {
 async function getProjects(req, res) {
     const { userEmail } = req.params
     try {
-        const projects = await Project.find({ email: userEmail })
+        const projects = await Project.find({ userEmail: userEmail })
         res.status(200).json(projects)
     } catch(e) {
         res.status(400).json(e)

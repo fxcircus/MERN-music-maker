@@ -6,8 +6,6 @@
     --shadow-color: #d8dcea;
 }
 
-
-
 .Project {
     display: flex;
     height: 100vh;
@@ -208,6 +206,16 @@ th {
 .logo-img:hover {
     transform: scale(1.05);
     transition: .3s ease;
+}
+
+.user-area {
+    margin-left: 10px;
+    color: white;
+}
+
+.user-area > hr {
+    /* margin-left: 10px; */
+    border-top: 1px solid whitesmoke;
 }
 
 /* .auth-page {
