@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react'
 import { getProjects, createProject } from '../../utilities/projects'
 import { Link } from 'react-router-dom'
+import * as userService from '../../utilities/users-service'
 
-export default function NavBar({ setRender, render, userEmail }) {
+export default function NavBar({ setRender, render, userEmail, userName }) {
     const [returnedProjects, setReturnedProjects] = useState([])
     const [currentText, setCurrentText] = useState ({})
     const [returnedProject, setReturnedProject] = useState(null)
@@ -29,8 +30,12 @@ export default function NavBar({ setRender, render, userEmail }) {
         setRender(!render)
     }
 
+    const logOut = async (evt) => {
+        await userService.logout()
+        window.location.reload()
+    }
+
     useEffect(() => {
-        // console.log('clicked')
         loadProjects()
     }, [render, returnedProject])
 
@@ -44,9 +49,14 @@ export default function NavBar({ setRender, render, userEmail }) {
     
                 <div className='user-area'>
                     <hr/>
-                    <p>{userEmail}</p>
+                    <p>{userName}</p>
+                    <Link to={'/'} onClick={ (e) =>{ logOut() } }>
+                        Sign out
+                    </Link>
                     <hr/>
                 </div>
+
+
                 
                 {
                     returnedProjects.map(item => {

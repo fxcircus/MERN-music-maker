@@ -5,7 +5,7 @@ export default function HomePage({ user }) {
     return (
         <main className='home-page'>
             <div className='nav-zone'>
-                <NavBar userEmail={user.email}/>
+                <NavBar userEmail={user.email} userName={user.name} />
             </div>
             <div className='home-image-zone'>
                 <img src='/mmmhomepg.png'/>

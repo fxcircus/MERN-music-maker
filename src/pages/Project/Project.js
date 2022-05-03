@@ -69,7 +69,7 @@ export default function Project({ user }) {
         return (
             <main className='Project'>
                 <div className='nav-zone'>
-                    <NavBar setRender={setRender} render={render}/>
+                    <NavBar setRender={setRender} render={render} userEmail={user.email} userName={user.name} />
                 </div>
                 {/* <h2> loading...</h2> */}
             </main>
