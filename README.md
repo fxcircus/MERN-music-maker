@@ -3,7 +3,9 @@
 A single page application designed for music making sessions. Create and manage projects!
 Each project includes a timer, inspiration generator, to-do lists, and notes.
 Made using the MERN stack.
-#
+
+## Getting Started
+### Go to the live deployed app->
 - [Live Heroku version](https://mern-music-maker.herokuapp.com/).
 - [Tello project board](https://trello.com/b/DRCQRral/unit-3-project-mern-music-maker).
 #
@@ -26,3 +28,13 @@ Graphic made by Mindy Miller
 - Postman
 - Git
 - GitHub
+
+## Next Steps:
+- Image hosting inside the project notes
+- Project collaboration
+
+## ERD
+![ERD](/public/ERD.png)
+
+## Wireframe
+![wireframe](/public/wireframe.png)
