@@ -3,7 +3,7 @@ import { getProjects, createProject } from '../../utilities/projects'
 import { Link } from 'react-router-dom'
 import * as userService from '../../utilities/users-service'
 
-export default function NavBar({ setRender, render, userEmail, userName }) {
+export default function NavBar({ setRender, render, userEmail, userName, setUser }) {
     const [returnedProjects, setReturnedProjects] = useState([])
     const [currentText, setCurrentText] = useState ({})
     const [returnedProject, setReturnedProject] = useState(null)
@@ -32,7 +32,8 @@ export default function NavBar({ setRender, render, userEmail, userName }) {
 
     const logOut = async (evt) => {
         await userService.logout()
-        window.location.reload()
+        setUser(null)
+        // window.location.reload()
     }
 
     useEffect(() => {

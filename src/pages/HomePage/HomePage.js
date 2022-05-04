@@ -1,11 +1,11 @@
 import NavBar from '../../components/NavBar/NavBar'
 
-export default function HomePage({ user }) {
+export default function HomePage({ setUser, user }) {
 
     return (
         <main className='home-page'>
             <div className='nav-zone'>
-                <NavBar userEmail={user.email} userName={user.name} />
+                <NavBar userEmail={user.email} userName={user.name} setUser={setUser} />
             </div>
             <div className='home-image-zone'>
                 <img src='/mmmhomepg.png'/>

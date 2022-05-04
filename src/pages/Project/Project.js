@@ -8,7 +8,7 @@ import { updateProject, getProject, deleteProject } from '../../utilities/projec
 import { useParams } from "react-router-dom"
 import NavBar from '../../components/NavBar/NavBar'
 
-export default function Project({ user }) {
+export default function Project({ setUser, user }) {
     const params = useParams()
     const projectId = params.id
     const [ savedProject, setSavedProject ] = useState(null)
@@ -42,7 +42,7 @@ export default function Project({ user }) {
         return (
             <main className='Project'>
                 <div className='nav-zone'>
-                    <NavBar setRender={setRender} render={render} userEmail={user.email} />
+                    <NavBar setRender={setRender} render={render} userEmail={user.email} setUser={setUser} />
                 </div>
                 <div className='project-zone'>
                     <Title saveProject={saveProject} projectTitle={savedProject.title} render={render}/>
