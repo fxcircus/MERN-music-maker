@@ -51,9 +51,9 @@ export default function NavBar({ setRender, render, userEmail, userName, setUser
                 <div className='user-area'>
                     <hr/>
                     <p>{userName}</p>
-                    <Link to={'/'} onClick={ (e) =>{ logOut() } }>
+                    <button onClick={ (e) =>{ logOut() } }>
                         Sign out
-                    </Link>
+                    </button>
                     <hr/>
                 </div>
 
