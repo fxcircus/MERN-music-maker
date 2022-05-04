@@ -11,7 +11,7 @@ import NavBar from '../../components/NavBar/NavBar'
 export default function Project({ user }) {
     const params = useParams()
     const projectId = params.id
-    const [ savedProject, setSavedProject ] = useState({})
+    const [ savedProject, setSavedProject ] = useState(null)
     const [ render, setRender ] = useState(false)
 
     const saveProject = (newAttr) => {
