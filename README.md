@@ -39,7 +39,7 @@ Graphic made by Mindy Miller
 - Improved graphics and styling
 
 ## ERD
-![ERD](/public/ERD-Screenshot.png)
+![ERD](/public/ERD.png)
 
 ## Wireframe
 ![wireframe](/public/wireframe.png)
