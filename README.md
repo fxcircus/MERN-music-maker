@@ -8,9 +8,13 @@ Made using the MERN stack.
 ### Go to the live deployed app->
 - [Live Heroku version](https://mern-music-maker.herokuapp.com/).
 - [Tello project board](https://trello.com/b/DRCQRral/unit-3-project-mern-music-maker).
-#
+
+## Homepage
 ![logo](/public/mmmhomepg.png)
 Graphic made by Mindy Miller
+
+## Sample project
+![screensho](/public/screenshot.png)
 
 #
 ### Technologies Used:
