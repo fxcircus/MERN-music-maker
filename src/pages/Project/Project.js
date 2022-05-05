@@ -42,7 +42,7 @@ export default function Project({ setUser, user }) {
         return (
             <main className='Project'>
                 <div className='nav-zone'>
-                    <NavBar setRender={setRender} render={render} userEmail={user.email} setUser={setUser} />
+                    <NavBar setRender={setRender} render={render} userEmail={user.email} userName={user.name} setUser={setUser} />
                 </div>
                 <div className='project-zone'>
                     <Title saveProject={saveProject} projectTitle={savedProject.title} render={render}/>
@@ -70,7 +70,7 @@ export default function Project({ setUser, user }) {
         return (
             <main className='Project'>
                 <div className='nav-zone'>
-                    <NavBar setRender={setRender} render={render} userEmail={user.email} userName={user.name} />
+                    <NavBar userEmail={user.email} userName={user.name} />
                 </div>
                 {/* <h2> loading...</h2> */}
             </main>
