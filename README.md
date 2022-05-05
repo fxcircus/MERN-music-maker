@@ -36,6 +36,7 @@ Graphic made by Mindy Miller
 ## Next Steps:
 - Image hosting inside the project notes
 - Project collaboration
+- Improved graphics and styling
 
 ## ERD
 ![ERD](/public/ERD.png)
