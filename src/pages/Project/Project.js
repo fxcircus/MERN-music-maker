@@ -13,9 +13,24 @@ export default function Project({ setUser, user }) {
     const projectId = params.id
     const [ savedProject, setSavedProject ] = useState(null)
     const [ render, setRender ] = useState(false)
+    const [ saveBtnTxt, setSaveBtnTxt ] = useState('Save')
+    const [ delBtnTxt, setDelBtnTxt ] = useState('Delete')
+    const [ isProjectDeleted, setIsProjectDeleted ] = useState (false)
 
     const saveProject = (newAttr) => {
         setSavedProject({...savedProject, ...newAttr})
+    }
+
+    const saveButtonText = (message) => {
+        setTimeout(() => {
+            setSaveBtnTxt(message)
+        }, 1000);
+    }
+
+    const delButtonText = (message) => {
+        setTimeout(() => {
+            setDelBtnTxt(message)
+        }, 1000);
     }
 
     const loadProject = async (id) => {
@@ -26,12 +41,17 @@ export default function Project({ setUser, user }) {
 
     const uploadSave = async () => {
         const response = await updateProject(savedProject)
-        console.log('saved')
+        setSaveBtnTxt('Done!')
+        saveButtonText('Save')
     }
 
     const deleteThisProject = async () => {
+        setDelBtnTxt('Project Deleted')
         const response = await deleteProject(savedProject._id)
         console.log(`deleted ${response}`)
+        delButtonText('Delete')
+        setSavedProject(null)
+        setIsProjectDeleted(true)
     }
 
     useEffect(() => {
@@ -41,27 +61,37 @@ export default function Project({ setUser, user }) {
     const loaded = () => {
         return (
             <main className='Project'>
+
                 <div className='nav-zone'>
                     <NavBar setRender={setRender} render={render} userEmail={user.email} userName={user.name} setUser={setUser} />
                 </div>
+
                 <div className='project-zone'>
                     <Title saveProject={saveProject} projectTitle={savedProject.title} render={render}/>
                     <hr/>
+
                     <TimeTracker saveProject={saveProject} time={savedProject.timeVal}/>
                     <hr/>
+
                     <RuleSet saveProject={saveProject} rules={savedProject}/>
                     <hr/>
+
                     <table>
                         <Progress saveProject={saveProject} projectId={savedProject._id}/>
                     </table>
+
                     <hr/>
                     <Notes saveProject={saveProject} notes={savedProject.notesVal}/>
+
                     <div className='project-button-area'>
-                        <button onClick={(e) => {uploadSave()}}>Save</button>
-                        <button onClick={(e) => {deleteThisProject()}}>Delete</button>
+                        <button onClick={(e) => {uploadSave()}}>{saveBtnTxt}</button>
+                        <button onClick={(e) => {deleteThisProject()}}>{delBtnTxt}</button>
                     </div>
+
                 </div>
+
                 <img src='/gtr-standing.png' />
+            
             </main>
         )
     }
@@ -70,9 +100,14 @@ export default function Project({ setUser, user }) {
         return (
             <main className='Project'>
                 <div className='nav-zone'>
-                    <NavBar userEmail={user.email} userName={user.name} />
+                    <NavBar setRender={setRender} render={render} userEmail={user.email} userName={user.name} setUser={setUser}  />
                 </div>
-                {/* <h2> loading...</h2> */}
+                {
+                    savedProject && savedProject.title ?
+                    <div>Loading...</div>
+                    :
+                    <h1>Project deleted. Load another 1 pls...</h1>
+                }
             </main>
             )
     }
