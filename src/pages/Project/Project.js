@@ -43,6 +43,7 @@ export default function Project({ setUser, user }) {
         const response = await updateProject(savedProject)
         setSaveBtnTxt('Done!')
         saveButtonText('Save')
+        setRender(!render)
     }
 
     const deleteThisProject = async () => {
@@ -52,6 +53,7 @@ export default function Project({ setUser, user }) {
         delButtonText('Delete')
         setSavedProject(null)
         setIsProjectDeleted(true)
+        setRender(!render)
     }
 
     useEffect(() => {
