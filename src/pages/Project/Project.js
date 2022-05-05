@@ -61,6 +61,7 @@ export default function Project({ setUser, user }) {
                         <button onClick={(e) => {deleteThisProject()}}>Delete</button>
                     </div>
                 </div>
+                <img src='/gtr-standing.png' />
             </main>
         )
     }

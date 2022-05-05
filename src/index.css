@@ -4,7 +4,9 @@
     --nav-back-color: #2e2f33;
     --divider-color: lightgray;
     --shadow-color: #d8dcea;
+    --background-color: #f6f6f6;
 }
+
 
 .Project {
     display: flex;
@@ -26,6 +28,18 @@
     width: 85vw;
     height: 100vh;
     margin-left: 10px;
+    background-repeat:no-repeat;
+    background-color: var(--background-color);
+    /* background-image: url('/public/gtr-standing.png'); */
+    /* background-position: center; */
+    /* background-size: cover; */
+}
+
+.project-zone > img {
+    position: absolute;
+    right: 0;
+    max-height: 100vh;
+    z-index: 0;
 }
 
 .home-image-zone {
@@ -46,10 +60,12 @@ body, button, input, a, textarea {
 
 input, textarea {
     background: none;
+    z-index: 1;
 }
 
 input, textarea{
     border: solid 2px var(--nav-back-color);
+    z-index: 1;
 }
 
 hr {
@@ -92,7 +108,7 @@ button:hover {
 
 th {
     border: ridge;
-    background: white;
+    background: var(--background-color);
     border-radius: 5px;
     box-shadow: 0px 5px 10px var(--shadow-color);
 }
@@ -110,7 +126,7 @@ th {
     margin: 0 0 5px 0;
     text-align: center;
     border: ridge;
-    background: white;
+    background: var(--background-color);
     border-radius: 5px;
     /* box-shadow: 0px 5px 10px var(--shadow-color); */
 }
